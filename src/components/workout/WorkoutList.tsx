@@ -1,15 +1,11 @@
 import Workout from "@/types/workout.types";
 import WorkoutCard from "./WorkoutCard";
-
-const getWorkouts = async () => {
-	const response = await fetch("https://api.abcz.workers.dev/api/fitlog");
-	return response.json();
-};
+import { getWorkouts } from "@/lib/api";
 
 const WorkoutList = async () => {
 	const workouts = await getWorkouts();
 	return (
-		<section className="container py-6 text-center md:text-left">
+		<section id="workouts" className="container pt-10 pb-16 text-center md:text-left">
 			<div className="space-y-2 mb-6">
 				<h2 className="font-primary font-bold text-2xl md:text-3xl">THE LIBRARY</h2>
 				<p className="text-sm text-gray-500">

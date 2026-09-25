@@ -29,3 +29,11 @@
 @utility circle {
 	@apply w-5 h-5 md:w-6 md:h-6 rounded-full center font-medium;
 }
+
+@utility btn-filled {
+	@apply bg-foreground text-background;
+}
+
+@utility btn-outline {
+	@apply border border-gray-500 text-gray-200;
+}

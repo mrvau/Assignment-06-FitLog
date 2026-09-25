@@ -2,11 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import hero from "@/assets/banner.png";
 import WorkoutList from "@/components/workout/WorkoutList";
+import Button from "@/components/shared/Button";
 
 const Home = () => {
 	return (
 		<>
-			<section className="container py-4 md:py-6">
+			<section className="container pt-4 md:pt-10">
 				<div className="bg-accent flex flex-col md:flex-row items-center md:justify-between gap-6 text-center md:text-left px-6 py-4 md:py-16 md:px-10 rounded-2xl border border-gray-800">
 					<div className="space-y-4 md:space-y-6 lg:space-y-8 flex-7/12">
 						<span className="text-foreground text-xs md:text-sm lg:text-base font-bold inline-block">
@@ -21,13 +22,11 @@ const Home = () => {
 							FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
 							<br /> into today&apos;s plan, and watch the week&apos;s work add up.
 						</p>
-						<Link href="/workouts">
-							<button className="bg-foreground text-background font-bold px-4 py-1 md:py-2 text-sm lg:text-base rounded-md cursor-pointer">
-								BROWSE WORKOUTS
-							</button>
+						<Link href="#workouts">
+							<Button className="btn-filled rounded-md">BROWSE WORKOUTS</Button>
 						</Link>
 					</div>
-					<div className="flex-5/12 justify-items-end">
+					<div className="flex-5/12 lg:flex-3/12 justify-items-end">
 						<Image
 							src={hero}
 							alt="FITLOG Hero Image"
