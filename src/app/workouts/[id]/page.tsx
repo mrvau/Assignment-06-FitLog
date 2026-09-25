@@ -79,18 +79,12 @@ const WorkoutDetailsPage = async ({ params }: { params: Promise<{ id: string }> 
 						))}
 					</div>
 				</div>
-				<div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-4">
-					<Button className="btn-filled rounded-lg">
-						<div className="flex items-center gap-2">
-							<Image src={add} alt="Add icon" width={24} height={24} />
-							<span>Add to today&apos;s plan</span>
-						</div>
+				<div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-4 mt-10">
+					<Button className="btn-filled rounded-lg" icon={{iconImage: add, name: "Add Icon"}}>
+						<span>Add to today&apos;s plan</span>
 					</Button>
-					<Button className="btn-outline rounded-lg">
-						<div className="flex items-center gap-2">
-							<Image src={save} alt="Add icon" width={24} height={24} />
-							<span>Save for later</span>
-						</div>
+					<Button className="btn-outline rounded-lg" icon={{iconImage: save, name: "Save Icon"}}>
+						<span>Save for later</span>
 					</Button>
 				</div>
 			</div>

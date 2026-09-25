@@ -1,11 +1,24 @@
 "use client";
-import { createContext, ReactNode, useState } from "react";
+import React, { createContext, useState } from "react";
+import Workout from "@/types/workout.types";
 
-export const WorkoutContext = createContext({});
+interface WorkoutContextInterface {
+	todayPlan: Workout[];
+	setTodayPlan: React.Dispatch<React.SetStateAction<Workout[]>>;
+	savedPlan: Workout[];
+	setSavedPlan: React.Dispatch<React.SetStateAction<Workout[]>>;
+}
 
-const WorkoutProvider = ({ children }: { children: ReactNode }) => {
-	const [todayPlan, setTodayPlan] = useState([]);
-	const [savedPlan, setSavedPlan] = useState([]);
+export const WorkoutContext = createContext<WorkoutContextInterface>({
+	savedPlan: [],
+	setSavedPlan: () => {},
+	todayPlan: [],
+	setTodayPlan: () => {},
+});
+
+const WorkoutProvider = ({ children }: { children: React.ReactNode }) => {
+	const [todayPlan, setTodayPlan] = useState<Workout[]>([]);
+	const [savedPlan, setSavedPlan] = useState<Workout[]>([]);
 
 	const value = {
 		todayPlan,
@@ -13,7 +26,7 @@ const WorkoutProvider = ({ children }: { children: ReactNode }) => {
 		savedPlan,
 		setSavedPlan,
 	};
-	return <WorkoutContext.Provider value={{}}>{children}</WorkoutContext.Provider>;
+	return <WorkoutContext.Provider value={value}>{children}</WorkoutContext.Provider>;
 };
 
 export default WorkoutProvider;
