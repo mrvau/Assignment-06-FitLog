@@ -26,6 +26,10 @@
 	@apply bg-foreground/10 text-foreground font-semibold;
 }
 
+@utility activeTab {
+	@apply bg-gray-600/50 rounded-xl font-bold text-white border border-gray-600/80;
+}
+
 @utility circle {
 	@apply w-5 h-5 md:w-6 md:h-6 rounded-full center font-medium;
 }
@@ -40,4 +44,12 @@
 
 @utility btn-outline {
 	@apply border border-gray-500 text-gray-200;
+}
+
+@utility dropdown {
+	@apply bg-gray-800/30 px-2.5 py-2 rounded-xl outline-none;
+
+	& > option {
+		@apply bg-gray-800;
+	}
 }

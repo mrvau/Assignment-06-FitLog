@@ -32,7 +32,7 @@ const NavItems = ({ menuRef, isOpen, className, onClose, pathname }: NavItemsPro
 				</li>
 				<li
 					className={`${pathname === "/my-plan" && "active"} w-full md:w-fit py-1 px-4 rounded-lg md:rounded-full`}>
-					<Link href={"/my-plan"} onNavigate={onClose}>
+					<Link href={"/my-plan/today"} onNavigate={onClose}>
 						My Plan
 					</Link>
 				</li>

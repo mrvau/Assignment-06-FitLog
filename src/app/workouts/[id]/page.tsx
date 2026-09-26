@@ -1,5 +1,4 @@
 import { getWorkout } from "@/lib/api";
-import Button from "@/components/shared/Button";
 import Image from "next/image";
 import DetailsButtons from "@/components/shared/DetailsButtons";
 
