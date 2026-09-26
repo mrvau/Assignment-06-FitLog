@@ -30,6 +30,10 @@
 	@apply w-5 h-5 md:w-6 md:h-6 rounded-full center font-medium;
 }
 
+@utility btn {
+	@apply font-bold px-4 py-1 md:py-2 text-sm lg:text-base cursor-pointer disabled:cursor-not-allowed disabled:opacity-50;
+}
+
 @utility btn-filled {
 	@apply bg-foreground text-background;
 }

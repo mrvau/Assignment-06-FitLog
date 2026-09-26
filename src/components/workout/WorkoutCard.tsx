@@ -1,8 +1,8 @@
 import Workout from "@/types/workout.types";
 import Image from "next/image";
-import clock from "@/assets/clock.png";
-import fire from "@/assets/fire.png";
-import star from "@/assets/star.png";
+import clock from "@/assets/clock.svg";
+import fire from "@/assets/fire.svg";
+import star from "@/assets/star.svg";
 import Link from "next/link";
 
 const WorkoutCard = ({ workout }: { workout: Workout }) => {

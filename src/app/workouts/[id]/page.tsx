@@ -1,8 +1,7 @@
 import { getWorkout } from "@/lib/api";
 import Button from "@/components/shared/Button";
 import Image from "next/image";
-import add from "@/assets/add.png";
-import save from "@/assets/save.png";
+import DetailsButtons from "@/components/shared/DetailsButtons";
 
 const WorkoutDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) => {
 	const { id } = await params;
@@ -45,7 +44,7 @@ const WorkoutDetailsPage = async ({ params }: { params: Promise<{ id: string }> 
 				/>
 			</div>
 			<div className="space-y-4">
-				<h1 className="font-primary font-bold text-3xl md:text-4xl">{name}</h1>
+				<h2 className="font-primary font-bold text-3xl md:text-4xl">{name}</h2>
 				<p className="text-gray-500 text-sm md:text-base lg:text-lg">{description}</p>
 				<div className="flex items-center justify-center md:justify-start gap-2">
 					{muscleGroups.map((muscle, index) => (
@@ -79,14 +78,7 @@ const WorkoutDetailsPage = async ({ params }: { params: Promise<{ id: string }> 
 						))}
 					</div>
 				</div>
-				<div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-4 mt-10">
-					<Button className="btn-filled rounded-lg" icon={{iconImage: add, name: "Add Icon"}}>
-						<span>Add to today&apos;s plan</span>
-					</Button>
-					<Button className="btn-outline rounded-lg" icon={{iconImage: save, name: "Save Icon"}}>
-						<span>Save for later</span>
-					</Button>
-				</div>
+				<DetailsButtons workout={workout} />
 			</div>
 		</section>
 	);
