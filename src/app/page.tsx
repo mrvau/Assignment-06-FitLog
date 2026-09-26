@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import hero from "@/assets/banner.png";
 import WorkoutList from "@/components/workout/WorkoutList";
+import { Suspense } from "react";
+import Loading from "@/components/workout/Loading";
 
 const Home = () => {
 	return (
@@ -37,7 +39,17 @@ const Home = () => {
 					</div>
 				</div>
 			</section>
-			<WorkoutList />
+			<section id="workouts" className="container pt-10 pb-16 text-center md:text-left">
+				<div className="space-y-2 mb-6">
+					<h2 className="font-primary font-bold text-2xl md:text-3xl">THE LIBRARY</h2>
+					<p className="text-sm text-gray-500">
+						Twelve lifts covering every major muscle group.
+					</p>
+				</div>
+				<Suspense fallback={<Loading />}>
+					<WorkoutList />
+				</Suspense>
+			</section>
 		</>
 	);
 };
