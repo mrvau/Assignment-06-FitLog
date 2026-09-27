@@ -18,19 +18,22 @@ interface ButtonProps {
 }
 
 const Button = ({ workout, className, icon, type, disabled, children }: ButtonProps) => {
-	const { todayPlan, setTodayPlan, setSavedPlan } = useContext(WorkoutContext);
+	const { todayPlan, setDoneWorkouts, setTodayPlan, setSavedPlan } = useContext(WorkoutContext);
 
 	const handleClick = (workout: Workout) => {
 		if (type === "plan") {
 			setTodayPlan((prev) => [...prev, workout]);
-			toast.success(`${workout.name} added to Today's Plan`);
+			toast.success(`${workout.name} added to Today's Plan.`);
 		} else if (type === "save") {
 			setSavedPlan((prev) => [...prev, workout]);
-			toast.success(`${workout.name} added to Saved Plan`);
+			toast.success(`${workout.name} added to Saved Plan.`);
 		} else if (type === "remove") {
 			const remainingPlan = todayPlan.filter((plan) => plan.id !== workout.id);
 			setTodayPlan(remainingPlan);
-			toast.warning(`${workout.name} removed from Today's plan`);
+			toast.warning(`${workout.name} removed from Today's plan.`);
+		} else {
+			setDoneWorkouts((prev) => [...prev, workout.id]);
+			toast.success(`${workout.name} marked as done.`);
 		}
 	};
 

@@ -3,12 +3,17 @@ import Image from "next/image";
 import clock from "@/assets/clock.png";
 import fire from "@/assets/fire.png";
 import star from "@/assets/star.png";
-import tick from "@/assets/tick.svg";
 import cross from "@/assets/cross.svg";
 import Link from "next/link";
 import Button from "../shared/Button";
+import ListCardButton from "./ListCardButton";
 
-const ListCard = ({ plan, tab }: { plan: Workout; tab: string }) => {
+interface ListCardProps {
+	plan: Workout;
+	tab: string;
+}
+
+const ListCard = ({ plan, tab }: ListCardProps) => {
 	const { duration, caloriesBurned, rating } = plan;
 	const workoutInfo = [
 		{
@@ -66,14 +71,7 @@ const ListCard = ({ plan, tab }: { plan: Workout; tab: string }) => {
 				</Link>
 				{tab === "today" && (
 					<div className="flex items-center justify-between w-full md:w-fit gap-2">
-						<Button
-							className="btn btn-filled rounded-xl text-center w-full md:w-fit"
-							icon={{ iconImage: tick, name: "Tick Icon" }}
-							type="mark"
-							disabled={false}
-							workout={plan}>
-							Mark as Done
-						</Button>
+						<ListCardButton plan={plan} />
 						<Button
 							icon={{ iconImage: cross, name: "Cross Icon" }}
 							type="remove"
